@@ -1,0 +1,37 @@
+defaults:
+  - A3a_local
+
+seed: 42
+
+paths:
+  output_dir: ${storage.output_root}/A3a_personalized_last4_seed42
+  wandb_project: null
+
+experiment:
+  name: A3a_personalized_last4_seed42
+  tags: [personal_preference, corrected_lora, last4, seed42]
+
+personalization:
+  music_dir: ${storage.music_root}
+  music_manifest: configs/music.original.yaml
+  author_checkpoint: ${storage.models_root}/MuQ-Eval-A3a/model_state_dict.pt
+  metadata_dir: ${storage.data_root}/MusicEval-original-metadata
+  preferred_gpu: null
+  minimum_free_gib: 8
+  allocator_limit_gib: 6
+  adapter_name: personal
+  target_pattern: '.*conformer\.layers\.(8|9|10|11)\.self_attn\.(linear_q|linear_k|linear_v|linear_out)$'
+  expected_trainable_params: 1445638
+  lora_lr: 0.0001
+  pooling_lr: 0.0001
+  head_lr: 0.001
+
+training:
+  epochs: 30
+  batch_size: 16
+  mixed_precision: bf16
+  warmup_steps: 24
+  patience: 7
+  monitor: val/macro_mae
+  monitor_mode: min
+  gradient_clip_norm: 1.0

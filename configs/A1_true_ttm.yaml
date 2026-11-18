@@ -1,0 +1,14 @@
+defaults:
+  - A1_local
+
+data:
+  cv_stratify_by: system_id
+  musiceval_metadata_dir: ${storage.data_root}/MusicEval-original-metadata
+  split_manifest: ${storage.output_root}/A1_frozen_mlp_true_ttm/split_manifest.json
+
+paths:
+  wandb_project: null
+
+experiment:
+  name: A1_frozen_mlp_true_ttm
+  tags: [baseline, frozen, mse, true_ttm_stratified_v1]

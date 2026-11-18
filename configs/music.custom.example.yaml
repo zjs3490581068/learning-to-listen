@@ -1,0 +1,17 @@
+# Change patterns/titles/labels, and provide your own authorized Ogg recordings.
+protocol: personalized_custom_last4_v1
+clips_per_song: 8
+validation_per_song: 2
+musiceval_count: 12
+musiceval_validation: 2
+demo_order: [My favorite, MusicEval]
+songs:
+  - title: My favorite
+    pattern: favorite.ogg
+    preference_target: 5
+    protected_interval: [90, 100]
+    display_target_interval: [4, 5]
+  - title: Another song
+    pattern: other.ogg
+    preference_target: 2
+musiceval_demo_interval: [1, 1.5]

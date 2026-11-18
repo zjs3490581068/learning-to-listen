@@ -1,0 +1,85 @@
+seed: 42
+data:
+  musiceval_id: ${storage.data_root}/MusicEval/data
+  songeval_id: ASLP-lab/SongEval
+  sample_rate: 24000
+  clip_duration_sec: 10.0
+  clip_samples: 240000
+  num_workers: 4
+  pin_memory: true
+  cv_folds: 5
+  cv_stratify_by: model
+  songeval_chunk_mode: random
+  songeval_num_chunks: 1
+  musiceval_dims:
+    MI: overall_quality
+    TA: textual_alignment
+  songeval_dims:
+    MI: Musicality
+    TA: null
+    PQ: Coherence
+model:
+  encoder: muq
+  encoder_id: ${storage.models_root}/MuQ-large-msd-iter
+  encoder_dim: 1024
+  freeze_encoder: true
+  pooling: attention
+  heads:
+  - name: MI
+    output_dim: 1
+  - name: TA
+    output_dim: 1
+  head_hidden_dim: 256
+  head_dropout: 0.1
+  head_layers: 2
+  lora:
+    r: 16
+    alpha: 32
+    target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - out_proj
+    dropout: 0.1
+    bias: none
+  tuning_mode: frozen
+loss:
+  type: mse
+  ordinal_bins: 5
+  ordinal_sigma: 0.5
+  contrastive_weight: 0.5
+  contrastive_margin: 0.5
+  contrastive_warmstart_epoch: 6
+  uncertainty_weighting: false
+  bias_calibration: false
+training:
+  epochs: 30
+  batch_size: 16
+  lr: 0.001
+  weight_decay: 0.01
+  warmup_steps: 500
+  scheduler: cosine
+  gradient_clip_norm: 1.0
+  mixed_precision: bf16
+  gradient_checkpointing: false
+  patience: 7
+  monitor: val/MI_srcc
+  monitor_mode: max
+  log_every_n_steps: 10
+  eval_every_n_epochs: 1
+  save_top_k: 3
+evaluation:
+  bootstrap_n: 1000
+  bootstrap_ci: 0.95
+  steiger_alpha: 0.0083
+paths:
+  output_dir: ${storage.output_root}
+  cache_dir: ${storage.cache_root}
+  wandb_project: null
+experiment:
+  name: A1_frozen_mlp
+  tags:
+  - baseline
+  - frozen
+  - mse
+  - phase1

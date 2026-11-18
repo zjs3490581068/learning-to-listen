@@ -1,0 +1,8 @@
+# Relative storage paths are resolved against the source tree, not the shell cwd.
+storage:
+  data_root: data
+  models_root: models
+  output_root: outputs
+  logs_root: logs
+  cache_root: .cache
+  music_root: data/personal_music

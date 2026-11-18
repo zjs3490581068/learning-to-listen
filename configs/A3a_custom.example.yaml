@@ -1,0 +1,7 @@
+defaults: [A3a_personalized]
+experiment:
+  name: A3a_personalized_custom
+paths:
+  output_dir: ${storage.output_root}/A3a_personalized_custom
+personalization:
+  music_manifest: configs/music.custom.example.yaml

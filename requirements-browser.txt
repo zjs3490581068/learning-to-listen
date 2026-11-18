@@ -1,0 +1,2 @@
+# Optional. Install a Chromium binary separately; no browser is downloaded by tests.
+playwright==1.65.0

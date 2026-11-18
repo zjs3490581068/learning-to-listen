@@ -1,0 +1,27 @@
+# A1/A3a only; FAD, MERT, SongEval, and W&B are intentionally excluded.
+# Install torch/torchaudio from the CUDA 12.1 wheel index first.
+torch==2.5.1
+torchaudio==2.5.1
+torchvision==0.20.1
+transformers==4.44.2
+peft==0.15.2
+accelerate==1.0.1
+safetensors==0.5.3
+huggingface-hub==0.30.2
+datasets==3.6.0
+pandas==2.2.3
+pyarrow==19.0.1
+numpy==1.26.4
+scipy==1.14.1
+scikit-learn==1.5.2
+librosa==0.10.2.post1
+soundfile==0.13.1
+matplotlib==3.9.4
+omegaconf==2.3.0
+tqdm==4.67.1
+muq==0.1.0
+einops==0.8.1
+nnAudio==0.3.3
+easydict==1.13
+x-clip==0.14.4
+Pillow==13.0.0

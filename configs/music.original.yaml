@@ -1,0 +1,21 @@
+# The original recordings are NOT distributed. Obtain lawful copies yourself.
+protocol: personalized_150_last4_v1
+clips_per_song: 8
+validation_per_song: 2
+musiceval_count: 54
+musiceval_validation: 6
+demo_order: [第六单元, 上下五千年, 九九八十一, 卧龙吟, MusicEval]
+songs:
+  - {title: 上下五千年, artist: 小少焱, pattern: '*上下五千年*.ogg', preference_target: 5, protected_interval: [247, 257], display_target_interval: [4, 5]}
+  - {title: 中渡桥, artist: 小少焱, pattern: '*中渡桥*.ogg', preference_target: 5}
+  - {title: 匹夫, artist: 小少焱, pattern: '*匹夫*.ogg', preference_target: 5}
+  - {title: 唐宋八大家, artist: 小少焱, pattern: '*唐宋八大家*.ogg', preference_target: 5}
+  - {title: '天命 (那只猴子死后)', artist: 小少焱, pattern: '*天命 (那只猴子死后)*.ogg', preference_target: 5}
+  - {title: 寒门贵子, artist: 小少焱, pattern: '*寒门贵子*.ogg', preference_target: 5}
+  - {title: 少年游 (DJ版), artist: 小少焱, pattern: '*少年游 (DJ版)*.ogg', preference_target: 5}
+  - {title: 第六单元, artist: 小少焱, pattern: '*第六单元*.ogg', preference_target: 5, protected_interval: [90, 100], display_target_interval: [4, 5]}
+  - {title: 九九八十一, pattern: '*九九八十一*.ogg', preference_target: 3, protected_interval: [224, 234], display_target_interval: [2.5, 3.5]}
+  - {title: 丈夫歌, pattern: '*丈夫歌*.ogg', preference_target: 2}
+  - {title: 卧龙吟, pattern: '*卧龙吟*.ogg', preference_target: 2, protected_interval: [107, 117], display_target_interval: [1.5, 2.5]}
+  - {title: 有为歌, pattern: '*有为歌*.ogg', preference_target: 2}
+musiceval_demo_interval: [1, 1.5]
